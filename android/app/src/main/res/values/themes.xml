@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.FileShuttle" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#007AFF</item>
+        <item name="colorPrimaryVariant">#0056b3</item>
+        <item name="colorOnPrimary">#ffffff</item>
+        <item name="android:statusBarColor">#F2F2F7</item>
+        <item name="android:navigationBarColor">#F2F2F7</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

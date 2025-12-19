@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F7"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Logo -->
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/logo_bg"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_folder"
+                android:contentDescription="Logo" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="File Shuttle"
+            android:textSize="28sp"
+            android:textColor="#1C1C1E"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="无线文件传输"
+            android:textSize="15sp"
+            android:textColor="#8E8E93" />
+
+        <!-- 状态卡片 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <View
+                android:id="@+id/statusDot"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/dot_offline" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/statusText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="点击启动服务"
+                    android:textSize="16sp"
+                    android:textColor="#1C1C1E"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/statusHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="服务未运行"
+                    android:textSize="13sp"
+                    android:textColor="#8E8E93" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 二维码卡片 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/card_bg"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="24dp">
+
+            <ImageView
+                android:id="@+id/qrImage"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:scaleType="fitCenter"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/qrPlaceholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="启动服务后显示二维码"
+                android:textSize="14sp"
+                android:textColor="#AEAEB2"
+                android:gravity="center"
+                android:padding="60dp" />
+        </LinearLayout>
+
+        <!-- 地址显示 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/card_bg"
+            android:padding="14dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="访问地址"
+                android:textSize="13sp"
+                android:textColor="#8E8E93" />
+
+            <TextView
+                android:id="@+id/urlText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:text="--"
+                android:textSize="15sp"
+                android:textColor="#007AFF"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+
+            <ImageButton
+                android:id="@+id/copyBtn"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/btn_icon_bg"
+                android:src="@drawable/ic_copy"
+                android:contentDescription="复制"
+                android:scaleType="center" />
+        </LinearLayout>
+
+        <!-- 使用说明 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_step" 
+                android:id="@+id/step1" />
+            <include layout="@layout/item_step" 
+                android:id="@+id/step2" />
+            <include layout="@layout/item_step" 
+                android:id="@+id/step3" />
+        </LinearLayout>
+
+        <!-- 按钮 -->
+        <Button
+            android:id="@+id/startBtn"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/btn_primary"
+            android:text="启动服务"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/stopBtn"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/btn_danger"
+            android:text="停止服务"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="20dp"
+            android:text="确保手机和电脑在同一 WiFi 网络"
+            android:textSize="13sp"
+            android:textColor="#AEAEB2" />
+
+    </LinearLayout>
+</ScrollView>
