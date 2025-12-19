@@ -72,6 +72,14 @@ class FileServerService : Service() {
             .build()
     }
     
+    data class UploadSession(
+        val filename: String,
+        val size: Long,
+        var offset: Long,
+        val tempPath: String,
+        val finalPath: String
+    )
+    
     inner class FileServer(port: Int) : NanoHTTPD(port) {
         
         private val rootDir = Environment.getExternalStorageDirectory()
@@ -80,15 +88,6 @@ class FileServerService : Service() {
         
         private val IMAGE_EXT = setOf("jpg", "jpeg", "png", "gif", "webp", "heic", "heif", "bmp")
         private val VIDEO_EXT = setOf("mp4", "mkv", "avi", "mov", "wmv", "flv", "webm", "3gp", "m4v")
-        private val SCAN_DIRS = listOf("DCIM", "Pictures", "Download", "tencent/MicroMsg/WeiXin", "Movies", "Camera", "Screenshots")
-        
-        data class UploadSession(
-            val filename: String,
-            val size: Long,
-            var offset: Long,
-            val tempPath: String,
-            val finalPath: String
-        )
         
         override fun serve(session: IHTTPSession): Response {
             val uri = session.uri
@@ -499,12 +498,13 @@ class FileServerService : Service() {
         }
         
         private fun serveHtml(): Response {
-            val html = EMBEDDED_HTML
+            val html = FileServerService.EMBEDDED_HTML
             return newFixedLengthResponse(Response.Status.OK, "text/html", html)
         }
-        
-        companion object {
-            const val EMBEDDED_HTML = """<!DOCTYPE html>
+    }
+    
+    companion object {
+        const val EMBEDDED_HTML = """<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -630,7 +630,5 @@ const app=new App();
 </script>
 </body>
 </html>"""
-        }
-
     }
 }
