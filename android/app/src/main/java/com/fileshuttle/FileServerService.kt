@@ -385,13 +385,13 @@ class FileServerService : Service() {
                 allFiles = [];
                 
                 // 更新路径栏
-                let pathHtml = '<a href="#" onclick="loadDirectory(\\'\\')">根目录</a>';
+                let pathHtml = '<a href="#" onclick="loadDirectory(' + "'" + "'" + ')">根目录</a>';
                 if (path) {
                     const parts = path.split('/').filter(p => p);
                     let accumulated = '';
                     parts.forEach(part => {
                         accumulated += '/' + part;
-                        pathHtml += ' / <a href="#" onclick="loadDirectory(\\'' + accumulated + '\\')">' + part + '</a>';
+                        pathHtml += ' / <a href="#" onclick="loadDirectory(' + "'" + accumulated + "'" + ')">' + part + '</a>';
                     });
                 }
                 document.getElementById('pathBar').innerHTML = pathHtml;
@@ -404,7 +404,7 @@ class FileServerService : Service() {
                         allFiles.push(file);
                         const icon = file.isDir ? '📁' : getFileIcon(file.ext);
                         const isImage = ['jpg','jpeg','png','gif','webp'].includes(file.ext);
-                        const thumb = isImage ? '<img class="thumb" src="/api/thumb?path=' + encodeURIComponent(file.path) + '" onerror="this.style.display=\\'none\\'">' : '<div class="file-icon">' + icon + '</div>';
+                        const thumb = isImage ? '<img class="thumb" src="/api/thumb?path=' + encodeURIComponent(file.path) + '" onerror="this.style.display=' + "'" + 'none' + "'" + '">' : '<div class="file-icon">' + icon + '</div>';
                         
                         html += '<div class="file-item" data-path="' + file.path + '" data-isdir="' + file.isDir + '" onclick="handleClick(this, event)">';
                         html += thumb;
