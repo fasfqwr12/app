@@ -88,6 +88,7 @@ class FileServerService : Service() {
         
         private val IMAGE_EXT = setOf("jpg", "jpeg", "png", "gif", "webp", "heic", "heif", "bmp")
         private val VIDEO_EXT = setOf("mp4", "mkv", "avi", "mov", "wmv", "flv", "webm", "3gp", "m4v")
+        private val SCAN_DIRS = listOf("DCIM", "Pictures", "Download", "Movies", "Video")
         
         override fun serve(session: IHTTPSession): Response {
             val uri = session.uri
