@@ -334,27 +334,27 @@ class FileServerService : Service() {
     <title>File Shuttle</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; }
-        .header { background: #16213e; padding: 15px 20px; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
-        .header h1 { font-size: 1.2rem; color: #4cc9f0; }
-        .path-bar { background: #0f3460; padding: 10px 20px; font-size: 0.9rem; color: #aaa; }
-        .path-bar a { color: #4cc9f0; text-decoration: none; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #333; min-height: 100vh; }
+        .header { background: #fff; padding: 15px 20px; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .header h1 { font-size: 1.2rem; color: #6366f1; }
+        .path-bar { background: #fff; padding: 10px 20px; font-size: 0.9rem; color: #666; border-bottom: 1px solid #eee; }
+        .path-bar a { color: #6366f1; text-decoration: none; }
         .file-group { margin: 10px 0; }
-        .group-header { background: #16213e; padding: 8px 20px; font-size: 0.85rem; color: #888; position: sticky; top: 60px; }
+        .group-header { background: #fff; padding: 8px 20px; font-size: 0.85rem; color: #888; position: sticky; top: 60px; border-bottom: 1px solid #eee; }
         .file-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; padding: 10px 20px; }
-        .file-item { background: #16213e; border-radius: 8px; padding: 10px; text-align: center; cursor: pointer; transition: transform 0.2s; }
-        .file-item:hover { transform: scale(1.05); background: #1f4068; }
-        .file-item.selected { border: 2px solid #4cc9f0; }
+        .file-item { background: #fff; border-radius: 8px; padding: 10px; text-align: center; cursor: pointer; transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .file-item:hover { transform: scale(1.05); background: #f0f0ff; }
+        .file-item.selected { border: 2px solid #6366f1; }
         .file-icon { font-size: 2.5rem; margin-bottom: 5px; }
-        .file-name { font-size: 0.75rem; word-break: break-all; color: #ccc; max-height: 2.4em; overflow: hidden; }
-        .file-size { font-size: 0.65rem; color: #666; margin-top: 3px; }
+        .file-name { font-size: 0.75rem; word-break: break-all; color: #333; max-height: 2.4em; overflow: hidden; }
+        .file-size { font-size: 0.65rem; color: #888; margin-top: 3px; }
         .thumb { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; }
-        .toolbar { position: fixed; bottom: 0; left: 0; right: 0; background: #16213e; padding: 15px 20px; display: flex; gap: 10px; justify-content: center; }
-        .btn { background: #4cc9f0; color: #000; border: none; padding: 12px 24px; border-radius: 25px; font-size: 1rem; cursor: pointer; }
-        .btn:disabled { background: #333; color: #666; }
-        .btn-secondary { background: #0f3460; color: #fff; }
-        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: #4cc9f0; transition: width 0.3s; z-index: 200; }
-        .loading { text-align: center; padding: 50px; color: #666; }
+        .toolbar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; padding: 15px 20px; display: flex; gap: 10px; justify-content: center; box-shadow: 0 -2px 4px rgba(0,0,0,0.1); }
+        .btn { background: #6366f1; color: #fff; border: none; padding: 12px 24px; border-radius: 25px; font-size: 1rem; cursor: pointer; }
+        .btn:disabled { background: #ddd; color: #999; }
+        .btn-secondary { background: #e5e7eb; color: #333; }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: #6366f1; transition: width 0.3s; z-index: 200; }
+        .loading { text-align: center; padding: 50px; color: #888; }
         @media (min-width: 768px) { .file-list { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); } }
     </style>
 </head>
